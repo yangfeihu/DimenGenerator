@@ -6,6 +6,7 @@ import cc.yann.android.dimengenerator.element.NegativeDimenElement;
 import cc.yann.android.dimengenerator.element.PositiveDimenElement;
 import cc.yann.android.dimengenerator.values.Values;
 import cc.yann.android.dimengenerator.xml.DOMGenerator;
+import cc.yann.android.dimengenerator.xml.SAXGenerator;
 import cc.yann.android.dimengenerator.xml.XmlGenerator;
 
 import java.io.File;
@@ -85,7 +86,7 @@ public class Main {
             baseWidth = 1920;
         }
 
-        XmlGenerator xmlGenerator = new DOMGenerator();
+        SAXGenerator xmlGenerator = new SAXGenerator();
 
         genValuesFiles(values, xmlGenerator, ouput, baseWidth);
 

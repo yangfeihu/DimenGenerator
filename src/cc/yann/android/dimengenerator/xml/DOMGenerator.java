@@ -40,10 +40,8 @@ public class DOMGenerator implements XmlGenerator {
     public void generate(Values values) throws IOException{
         File dimenFile = values.getDimenFile();
         Document document = sDocumentBuilder.newDocument();
-        document.setXmlVersion("1.0");
         document.setXmlStandalone(true);
-        Element root = document.createElement("resource");
-        document.appendChild(root);
+        Element root = document.createElement("resources");
         List<Dimen> dimens = values.getDimens();
         for (Dimen dimenItem : dimens) {
             Element dimenElement = document.createElement("dimen");
@@ -58,6 +56,7 @@ public class DOMGenerator implements XmlGenerator {
             root.appendChild(document.createTextNode("\n    "));
             root.appendChild(dimenElement);
         }
+        document.appendChild(root);
 
         FileOutputStream fos = new FileOutputStream(dimenFile);
         TransformerFactory tf = TransformerFactory.newInstance();
